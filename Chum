@@ -1,6 +1,6 @@
 repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
 
-local KEY = "VanHiep-Hub_Z8Q9F7H4IM2DLPHNBCWDXRATYV"
+local KEY = "VanHieppbui-Hub_Z8Q9F7H4IM2DLPHNBCWDXRATYV"
 local SCRIPT_URL = "https://gist.githubusercontent.com/Vanphung210/a3655cbb052af73edab6180765e76ad6/raw"
 local GETKEY_URL = "https://link4m.com/ijeL3x"
 local DISCORD_URL = "https://yeulink.com/KingRua"

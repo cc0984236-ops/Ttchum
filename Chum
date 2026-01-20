@@ -1,0 +1,120 @@
+repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
+
+local KEY = "RUAKING-Hub_Z8Q9F7H4IM2DLPHNBCWDXRATYV"
+local SCRIPT_URL = "https://gist.githubusercontent.com/Vanphung210/a3655cbb052af73edab6180765e76ad6/raw"
+local GETKEY_URL = "https://link4m.com/ijeL3x"
+local DISCORD_URL = "https://yeulink.com/KingRua"
+
+local player = game.Players.LocalPlayer
+local GuiService = game:GetService("GuiService")
+
+-- GUI
+local gui = Instance.new("ScreenGui", player.PlayerGui)
+gui.Name = "KeyMenu"
+gui.ResetOnSpawn = false
+
+local frame = Instance.new("Frame", gui)
+frame.Size = UDim2.fromOffset(330, 190)
+frame.Position = UDim2.fromScale(0.5, 0.5)
+frame.AnchorPoint = Vector2.new(0.5, 0.5)
+frame.BackgroundColor3 = Color3.fromRGB(15,15,18)
+frame.BorderSizePixel = 0
+frame.Active = true
+frame.Draggable = true
+
+Instance.new("UICorner", frame).CornerRadius = UDim.new(0,14)
+
+local stroke = Instance.new("UIStroke", frame)
+stroke.Color = Color3.fromRGB(0,255,160)
+stroke.Thickness = 2
+
+-- Title
+local title = Instance.new("TextLabel", frame)
+title.Size = UDim2.new(1,0,0,30)
+title.BackgroundTransparency = 1
+title.Text = "SYNTRAX-Hub • KEY SYSTEM"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 14
+title.TextColor3 = Color3.fromRGB(0,255,160)
+
+-- TextBox
+local box = Instance.new("TextBox", frame)
+box.Size = UDim2.new(1,-40,0,32)
+box.Position = UDim2.fromOffset(20,45)
+box.PlaceholderText = "Enter key..."
+box.Text = ""
+box.Font = Enum.Font.Gotham
+box.TextSize = 12
+box.TextColor3 = Color3.new(1,1,1)
+box.BackgroundColor3 = Color3.fromRGB(25,25,30)
+box.BorderSizePixel = 0
+Instance.new("UICorner", box).CornerRadius = UDim.new(0,10)
+Instance.new("UIStroke", box).Color = Color3.fromRGB(0,255,160)
+
+-- Confirm
+local confirm = Instance.new("TextButton", frame)
+confirm.Size = UDim2.new(1,-40,0,32)
+confirm.Position = UDim2.fromOffset(20,85)
+confirm.Text = "ENTER"
+confirm.Font = Enum.Font.GothamBold
+confirm.TextSize = 12
+confirm.TextColor3 = Color3.fromRGB(0,255,160)
+confirm.BackgroundColor3 = Color3.fromRGB(20,30,25)
+confirm.BorderSizePixel = 0
+Instance.new("UICorner", confirm).CornerRadius = UDim.new(0,10)
+
+-- GetKey
+local getKey = Instance.new("TextButton", frame)
+getKey.Size = UDim2.new(0.45,-5,0,30)
+getKey.Position = UDim2.fromOffset(20,135)
+getKey.Text = "Get Key Free 1"
+getKey.Font = Enum.Font.Gotham
+getKey.TextSize = 11
+getKey.TextColor3 = Color3.new(1,1,1)
+getKey.BackgroundColor3 = Color3.fromRGB(25,25,30)
+getKey.BorderSizePixel = 0
+Instance.new("UICorner", getKey).CornerRadius = UDim.new(0,10)
+
+-- Discord
+local discord = Instance.new("TextButton", frame)
+discord.Size = UDim2.new(0.45,-5,0,30)
+discord.Position = UDim2.fromOffset(170,135)
+discord.Text = "Get Key Free 2"
+discord.Font = Enum.Font.Gotham
+discord.TextSize = 11
+discord.TextColor3 = Color3.new(1,1,1)
+discord.BackgroundColor3 = Color3.fromRGB(25,25,30)
+discord.BorderSizePixel = 0
+Instance.new("UICorner", discord).CornerRadius = UDim.new(0,10)
+
+-- Events
+getKey.MouseButton1Click:Connect(function()
+    pcall(function() setclipboard(GETKEY_URL) end)
+    pcall(function() GuiService:OpenBrowserWindow(GETKEY_URL) end)
+end)
+
+discord.MouseButton1Click:Connect(function()
+    pcall(function() setclipboard(DISCORD_URL) end)
+    pcall(function() GuiService:OpenBrowserWindow(DISCORD_URL) end)
+end)
+
+confirm.MouseButton1Click:Connect(function()
+    if box.Text == KEY then
+        gui:Destroy()
+        loadstring(game:HttpGet(SCRIPT_URL))()
+    else
+        box.Text = ""
+        box.PlaceholderText = "🖕Wrong key🖕"
+    end
+end)
+
+-- ==========================================
+-- TrauRoblox v1.0
+-- ==========================================
+-- 1. Hiện thông báo "chào sân" cực oai
+game.StarterGui:SetCore("SendNotification", {
+Title = "TrauRoblox";
+Text = "Follow TrauRoblox!";
+Icon = "Trau"; -- Icon thông báo
+Duration = 10;
+})
